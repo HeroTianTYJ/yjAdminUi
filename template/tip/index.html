@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>昱杰后台UI框架</title>
+<script type="text/javascript" src="../../static/vendor/jquery.js"></script>
+<script type="text/javascript" src="../../static/yj.admin.ui/js/common/Common.js"></script>
+<script type="text/javascript" src="../../static/yj.admin.ui/js/common/Base.js"></script>
+<script type="text/javascript" src="../../static/yj.admin.ui/js/module/Tip.js"></script>
+<link rel="stylesheet" type="text/css" href="../../static/yj.admin.ui/iconfont/iconfont.css">
+<link rel="stylesheet" type="text/css" href="../../static/yj.admin.ui/iconfont/iconfont.extra.css">
+<link rel="stylesheet" type="text/css" href="../../static/yj.admin.ui/css/common/Basic.css">
+<script type="text/javascript">
+let CONFIG = {
+  FOLD_MAIN_WIDTH: 'calc(100% - 122px)',
+  EXPAND_MAIN_WIDTH: 'calc(100% - 322px)'
+};
+</script>
+</head>
+
+<body class="big">
+<div class="left">
+  <div class="logo"><a href="../index/index.html"><span class="iconfont icon-logo"></span></a></div>
+
+  <ul class="navigator">
+    <li><a href="../index/index.html"><span class="iconfont icon-index"></span> 首页</a></li>
+    <li><a href="../form/index.html"><span class="iconfont icon-form"></span> 表单</a></li>
+    <li><a href="../table/index.html"><span class="iconfont icon-table"></span> 表格</a></li>
+    <li>
+      <a href="javascript:"><span class="iconfont icon-search"></span> 搜索</a>
+      <div class="child">
+        <ul>
+          <li><a href="../search/index.html">简单搜索</a></li>
+          <li><a href="../search/advance.html">高级搜索</a></li>
+        </ul>
+      </div>
+    </li>
+    <li><a href="../tab/index.html"><span class="iconfont icon-tab"></span> Tab</a></li>
+    <li class="active"><a href="../tip/index.html"><span class="iconfont icon-tip-info"></span> 提示</a></li>
+    <li><a href="../layer/index.html"><span class="iconfont icon-layer"></span> 弹窗</a></li>
+    <li>
+      <a href="javascript:"><span class="iconfont icon-case"></span> 案例</a>
+      <div class="child">
+        <ul>
+          <li><a href="../user/index.html">用户管理</a></li>
+          <li><a href="../product/index.html">商品管理</a></li>
+        </ul>
+      </div>
+    </li>
+    <li>
+      <a href="javascript:"><span class="iconfont icon-profile"></span> </a>
+      <div class="child">
+        <ul>
+          <li><a href="../profile/index.html">个人资料</a></li>
+          <li><a href="../profile/loginRecord.html">登录记录</a></li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="top">
+  <h1>提示</h1>
+
+  <div class="user">风形火影（创始人） [<a href="../profile/index.html">个人资料</a>] [<a href="../profile/loginRecord.html">登录记录</a>] [<a href="https://item.taobao.com/item.htm?id=531038056831" target="_blank">赞助作者</a>] [<a href="../login/index.html">退出</a>]</div>
+</div>
+
+<div class="main no-child-navigator">
+  <div class="tool">
+    <div class="row1">
+      <h2>提示</h2>
+      <p class="clear"></p>
+    </div>
+  </div>
+
+  <form method="post" action="" class="form layui-form">
+    <p style="margin:10px 0 0 0;"><input type="button" value="成功提示" class="button success"> <input type="button" value="失败提示" class="button failed"> <input type="button" value="信息提示" class="button info"> <input type="button" value="警告提示" class="button warning"></p>
+  </form>
+</div>
+
+<div class="tip"><div><span class="iconfont color"></span> <span class="content"></span></div></div>
+
+<!-- 统计代码，可自行删除 -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?ee00a8b1120aaa9c75fa0f12487c673d";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</body>
+</html>

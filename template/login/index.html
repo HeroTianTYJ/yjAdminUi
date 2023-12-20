@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0">
+<title>昱杰后台UI框架-后台登录</title>
+<script type="text/javascript" src="../../static/vendor/jquery.js"></script>
+<script type="text/javascript" src="../../static/vendor/validForm.js"></script>
+<script type="text/javascript" src="../../static/yj.admin.ui/js/module/Login.js"></script>
+<link rel="stylesheet" type="text/css" href="../../static/yj.admin.ui/iconfont/iconfont.css">
+<link rel="stylesheet" type="text/css" href="../../static/yj.admin.ui/iconfont/iconfont.extra.css">
+<link rel="stylesheet" type="text/css" href="../../static/yj.admin.ui/css/common/Basic.css">
+<link rel="stylesheet" type="text/css" href="../../static/yj.admin.ui/css/module/Login.css">
+</head>
+
+<body>
+<form method="post" action="../../server/Login.json" class="login">
+  <h1><span class="iconfont icon-logo"></span>昱杰后台UI框架</h1>
+
+  <dl>
+    <dt>帐号密码登录</dt>
+    <dd><input type="text" name="name" class="text"></dd>
+    <dd><input type="password" name="pass" class="text"></dd>
+    <dd class="tip red"></dd>
+    <dd style="text-align:right;"><a href="../reset/index.html">重置密码</a></dd>
+    <dd class="submit"><input type="submit" value="登录"></dd>
+    <dd class="third"><a href="javascript:"><span class="iconfont icon-wechat color"></span></a><a href="javascript:"><span class="iconfont icon-qq color"></span></a></dd>
+  </dl>
+
+  <footer class="copyright"><a href="https://www.yjrj.top/" target="_blank">昱杰软件</a> © 版权所有</footer>
+</form>
+
+<!-- 统计代码，可自行删除 -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?ee00a8b1120aaa9c75fa0f12487c673d";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</body>
+</html>

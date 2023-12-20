@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0">
+<title>昱杰后台UI框架-系统安装-第3步</title>
+<link rel="stylesheet" type="text/css" href="../../static/yj.admin.ui/iconfont/iconfont.css">
+<link rel="stylesheet" type="text/css" href="../../static/yj.admin.ui/iconfont/iconfont.extra.css">
+<link rel="stylesheet" type="text/css" href="../../static/yj.admin.ui/css/common/Basic.css">
+<link rel="stylesheet" type="text/css" href="../../static/yj.admin.ui/css/common/SinglePage.css">
+</head>
+
+<body>
+<h1><span class="iconfont icon-logo"></span>昱杰后台UI框架-系统安装-第3步</h1>
+
+<form method="post" action="" class="form">
+  <table>
+    <tr><td colspan="2" class="title">系统信息</td></tr>
+    <tr><td>网站名称：</td><td><input type="text" name="web_name" class="text" placeholder="显示在后台起始页和后台所有网页的标题中，中英文均可"></td></tr>
+    <tr><td>后台入口：</td><td><input type="text" name="manager_enter" class="text" placeholder="英文、数字、英文+数字.php，如abc.php、abc123.php"></td></tr>
+    <tr class="tip"><td></td><td>说明：默认为admin.php，但为了不让其他人猜解到后台入口，请设置一个不太为人知的入口（.php不能省略）。</td></tr>
+    <tr><td>&nbsp;</td></tr>
+    <tr><td colspan="2" class="title">管理员信息</td></tr>
+    <tr><td>用 户 名：</td><td><input type="text" name="admin_name" class="text" placeholder="安装成功后，用来登录后台的管理员帐号"></td></tr>
+    <tr><td>密　　码：</td><td><input type="password" name="admin_pass" class="text" placeholder="管理员密码"></td></tr>
+    <tr><td>确认密码：</td><td><input type="password" name="admin_repass" class="text" placeholder="同上"></td></tr>
+    <tr><td>电子邮箱：</td><td><input type="text" name="admin_mail" class="text" placeholder="管理员邮箱，可用来接收订单提醒邮件"></td></tr>
+    <tr><td colspan="2" class="button-td"><input type="submit" value="确认安装" class="button"></td></tr>
+  </table>
+</form>
+
+<footer class="copyright"><a href="https://www.yjrj.top/" target="_blank">昱杰软件</a> © 版权所有</footer>
+
+<!-- 统计代码，可自行删除 -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?ee00a8b1120aaa9c75fa0f12487c673d";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 2758673 */
+  src: url('iconfont.ttf?t=1631172544338') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont",serif !important;
+  font-style: normal;
+}
+
+.icon-star:before {
+  content: "\e64e";
+}
+
+.icon-star-whole:before {
+  content: "\e660";
+}
+
+.icon-case:before {
+  content: "\e658";
+}
+
+.icon-form:before {
+  content: "\e659";
+}
+
+.icon-table:before {
+  content: "\e65a";
+}
+
+.icon-button:before {
+  content: "\e65b";
+}
+
+.icon-layer:before {
+  content: "\e65c";
+}
+
+.icon-tab:before {
+  content: "\e65e";
+}
+
+.icon-icon:before {
+  content: "\e65f";
+}
+
+.icon-tip-warning:before {
+  content: "\e626";
+}
+
+.icon-tip-info:before {
+  content: "\e62e";
+}
+
+.icon-fold:before {
+  content: "\e62b";
+}
+
+.icon-expand:before {
+  content: "\e62c";
+}
+
+.icon-qq:before {
+  content: "\e65d";
+}
+
+.icon-tip-failed:before {
+  content: "\e64a";
+}
+
+.icon-tip-succeed:before {
+  content: "\e64b";
+}
+
+.icon-search:before {
+  content: "\e64d";
+}
+
+.icon-logo:before {
+  content: "\e650";
+}
+
+.icon-index:before {
+  content: "\e651";
+}
+
+.icon-wechat:before {
+  content: "\e654";
+}
+
+.icon-question:before {
+  content: "\e656";
+}
