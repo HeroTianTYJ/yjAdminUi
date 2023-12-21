@@ -1,6 +1,6 @@
 @charset "utf-8";
 body{
-    background: #F0F3F7 url("../../images/single_page_bg.png") no-repeat fixed top center;
+    background: #F0F3F7 url("../images/single_page_bg.png") no-repeat fixed top center;
 }
 h1 {
     color: #000;
