@@ -55,7 +55,7 @@ $(function () {
   });
 
   // 颜色选择器
-  $('.colorpicker').colorpicker();
+  $('.color_picker').colorPicker();
 
   // 数字调节器
   $('div.number').number({

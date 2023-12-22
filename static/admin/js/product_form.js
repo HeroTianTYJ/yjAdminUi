@@ -1,3 +1,3 @@
 $(function () {
-  $('input[name=color]').colorpicker();
+  $('input[name=color]').colorPicker();
 });

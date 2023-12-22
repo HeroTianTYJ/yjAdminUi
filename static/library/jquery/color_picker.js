@@ -2,13 +2,12 @@
 jQuery插件：颜色拾取器
 @author  Karson
 @url     http://blog.iplaybus.com
-@name    jquery.colorpicker.js
 */
 (function ($) {
   let colorHex = ['0', '3', '6', '9', 'C', 'F'];
   let spColorHex = ['F00', '0F0', '00F', 'FF0', '0FF', 'F0F'];
-  $.fn.colorpicker = function (options) {
-    let extend = jQuery.extend({}, jQuery.fn.colorpicker.defaults, options);
+  $.fn.colorPicker = function (options) {
+    let extend = jQuery.extend({}, jQuery.fn.colorPicker.defaults, options);
     init();
     return this.each(function () {
       let $this = $(this);
@@ -61,7 +60,7 @@ jQuery插件：颜色拾取器
       $('body').append(colorPicker);
     }
   };
-  jQuery.fn.colorpicker.defaults = {
+  jQuery.fn.colorPicker.defaults = {
     fill_color: true, // 是否将颜色值填充至对象的val中
     target: null, // 目标对象
     event: 'click' // 颜色框显示的事件
