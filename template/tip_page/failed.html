@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0">
+<title>昱杰后台UI框架-提示页</title>
+<script type="text/javascript" src="../../static/library/jquery/jquery.js"></script>
+<script src="../../static/yj.admin.ui/library/tip.js"></script>
+<link rel="stylesheet" type="text/css" href="../../static/yj.admin.ui/iconfont/iconfont.css">
+<link rel="stylesheet" type="text/css" href="../../static/yj.admin.ui/iconfont/iconfont.extra.css">
+<link rel="stylesheet" type="text/css" href="../../static/yj.admin.ui/css/tip.css">
+<script type="text/javascript">
+let CONFIG = {
+  TYPE: 'failed',
+  TIP_CONTENT: '登录失败，请重试！',
+  LOCATION_URL: '',
+  LOCATION_CONTENT: '点击这里返回上一页',
+  SECOND: 5
+};
+</script>
+</head>
+
+<body>
+<div class="tip">
+  <p class="iconfont color"></p>
+  <p class="tip_content"></p>
+  <p class="location"><a></a></p>
+</div>
+</body>
+</html>
