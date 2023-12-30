@@ -10,7 +10,7 @@
 
 ## 一、框架简介
 
-本框架中的界面及组件包含：系统安装、后台登录、后台重置密码、后台首页、表单、表格、简单搜索、高级搜索、Tab、提示、弹窗。
+本框架中的界面及组件包含：系统安装、后台登录、后台重置密码、后台首页、表单、表格、简单搜索、高级搜索、Tab、提示、提示页、弹窗、图片表单、图片管理。
 
 且附有完整模块的案例展示，足以满足后台从系统安装到系统主要功能的界面搭建。
 
@@ -48,6 +48,14 @@ https://www.yjrj.top/demo/yjAdminUi/
 ![19.jpg](preview%2F19.jpg)
 ![20.jpg](preview%2F20.jpg)
 ![21.jpg](preview%2F21.jpg)
+![34.jpg](preview%2F34.jpg)
+![35.jpg](preview%2F35.jpg)
+![36.jpg](preview%2F36.jpg)
+![37.jpg](preview%2F37.jpg)
+![38.jpg](preview%2F38.jpg)
+![39.jpg](preview%2F39.jpg)
+![40.jpg](preview%2F40.jpg)
+![41.jpg](preview%2F41.jpg)
 ![22.jpg](preview%2F22.jpg)
 ![23.jpg](preview%2F23.jpg)
 ![24.jpg](preview%2F24.jpg)
