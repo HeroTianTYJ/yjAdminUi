@@ -15,7 +15,7 @@ function Gallery (args = {}) {
     }
   });
   webUploader.on('uploadSuccess', function (file, response) {
-    let json = JSON.parse(response);
+    let json = JSON.parse(response._raw);
     if (json.state === 1) {
       let fileName = json.content;
       if (args.text && $input.length) {
