@@ -8,6 +8,10 @@
   font-style: normal;
 }
 
+.icon-picture:before {
+  content: "\e663";
+}
+
 .icon-star:before {
   content: "\e64e";
 }

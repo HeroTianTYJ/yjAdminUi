@@ -5,22 +5,26 @@
 <meta name="viewport" content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <title>昱杰后台UI框架</title>
 <script type="text/javascript" src="../../static/library/jquery/jquery.js"></script>
-<script type="text/javascript" src="../../static/library/i_check/i_check.js"></script>
 <script type="text/javascript" src="../../static/yj.admin.ui/js/jquery/page.js"></script>
 <script type="text/javascript" src="../../static/yj.admin.ui/js/common.js"></script>
 <script type="text/javascript" src="../../static/yj.admin.ui/js/base.js"></script>
-<script type="text/javascript" src="../../static/admin/js/table.js"></script>
-<link rel="stylesheet" type="text/css" href="../../static/library/i_check/i_check.css">
+<script type="text/javascript" src="../../static/admin/js/picture.js"></script>
 <link rel="stylesheet" type="text/css" href="../../static/yj.admin.ui/iconfont/iconfont.css">
 <link rel="stylesheet" type="text/css" href="../../static/yj.admin.ui/iconfont/iconfont_extra.css">
 <link rel="stylesheet" type="text/css" href="../../static/yj.admin.ui/css/basic.css">
+<link rel="stylesheet" type="text/css" href="../../static/admin/css/picture.css">
 <script type="text/javascript">
 let CONFIG = {
-  FOLD_MAIN_WIDTH: 'calc(100% - 122px)',
-  EXPAND_MAIN_WIDTH: 'calc(100% - 322px)',
-  LIST: '../../server/Table.json',
+  FOLD_MAIN_WIDTH: 'calc(100% - 258px)',
+  EXPAND_MAIN_WIDTH: 'calc(100% - 458px)',
+  TYPE: 'picture',
+  LIST: '../../server/Picture.json',
   PAGE_SIZE: 20,
-  TOTAL: 60
+  TOTAL: 10,
+  DIR_UPLOAD: '../../uploads/',
+  CLEAR_PICTURE: '../../server/PictureClear.json',
+  ID: '2023-12',
+  PICTURE_TYPE: '0'
 };
 </script>
 </head>
@@ -32,7 +36,7 @@ let CONFIG = {
   <ul class="navigator">
     <li><a href="../index/index.html"><span class="iconfont icon-index"></span> 首页</a></li>
     <li><a href="../form/index.html"><span class="iconfont icon-form"></span> 表单</a></li>
-    <li class="active"><a href="../table/index.html"><span class="iconfont icon-table"></span> 表格</a></li>
+    <li><a href="../table/index.html"><span class="iconfont icon-table"></span> 表格</a></li>
     <li>
       <a href="javascript:"><span class="iconfont icon-search"></span> 搜索</a>
       <div class="child">
@@ -45,12 +49,12 @@ let CONFIG = {
     <li><a href="../tab/index.html"><span class="iconfont icon-tab"></span> Tab</a></li>
     <li><a href="../tip/index.html"><span class="iconfont icon-tip-info"></span> 提示</a></li>
     <li><a href="../layer/index.html"><span class="iconfont icon-layer"></span> 弹窗</a></li>
-    <li>
+    <li class="active">
       <a href="javascript:"><span class="iconfont icon-picture"></span> 图片</a>
       <div class="child">
         <ul>
           <li><a href="../picture_form/index.html">图片表单</a></li>
-          <li><a href="../picture/index.html">图片管理</a></li>
+          <li class="active"><a href="../picture/index.html">图片管理</a></li>
         </ul>
       </div>
     </li>
@@ -76,26 +80,36 @@ let CONFIG = {
 </div>
 
 <div class="top">
-  <h1>表格</h1>
+  <h1>图片</h1>
 
   <div class="user">风形火影（创始人） [<a href="../profile/index.html">个人资料</a>] [<a href="../profile/loginRecord.html">登录记录</a>] [<a href="https://item.taobao.com/item.htm?id=531038056831" target="_blank">赞助作者</a>] [<a href="../login/index.html">退出</a>]</div>
 </div>
 
-<div class="main no-child-navigator">
+<div class="main">
   <div class="tool">
     <div class="row1">
-      <h2>表格</h2>
+      <h3><a href="../picture/index.html">图片管理</a> / <span>2023-12目录</span></h3>
+
+      <form method="get" action="" class="search layui-form" onsubmit="return false;">
+        <div class="search-text"><input type="text" name="keyword" value="" class="text"><span class="iconfont icon-search"></span></div>
+      </form>
 
       <p class="clear"></p>
     </div>
   </div>
 
   <div class="list">
-    <table class="left-fix right-fix">
-      <thead><tr class="row1"><th style="width:60px;"><div class="check-box"><label><input type="checkbox" class="all">全选</label></div></th><th style="width:200px;">列1</th><th style="width:200px;">列2</th><th style="width:200px;">列3</th><th style="width:200px;">列4</th><th style="width:200px;">列5</th><th style="width:200px;">列6</th><th style="width:80px;">操作</th></tr></thead>
-      <tbody class="items"></tbody>
-    </table>
-
+    <div class="group">
+      <p>分组：</p>
+      <ul>
+        <li class="active"><a href="../picture/picture.html">目录中的图片（10）</a></li>
+        <li><a href="../picture/picture2.html">数据库中的图片（10）</a></li>
+        <li><a href="../picture/picture3.html">数据库中丢失的图片（3）</a></li>
+        <li><a href="../picture/picture4.html">目录中冗余的图片（0）</a></li>
+      </ul>
+    </div>
+    <p class="clear"></p>
+    <ul class="items"></ul>
     <div class="pagination"><ul></ul></div>
   </div>
 </div>
@@ -104,7 +118,7 @@ let CONFIG = {
   <h3>温馨提示 <span class="iconfont icon-fold"></span></h3>
 
   <ul>
-    <li>因为是静态json数据，所以每一页的数据完全一样。</li>
+    <li>Todo：所有数据均为静态内容，实际后端交互、内容回显，请开发者在自己项目中完成。</li>
   </ul>
 
   <span class="iconfont icon-expand color"></span>

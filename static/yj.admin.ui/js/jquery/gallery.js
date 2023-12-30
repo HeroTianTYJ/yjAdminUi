@@ -9,23 +9,30 @@ function Gallery (args = {}) {
   // 上传
   args.uploadConfig.pick = args.pick;
   let webUploader = WebUploader.create(args.uploadConfig);
-  webUploader.on('beforeFileQueued', function () {
-    if (args.beforeCallback($input.length ? $input.val().split(',') : []) === false) return false;
+  webUploader.on('uploadStart', function () {
+    if (args.beforeCallback($input.length ? $input.val().split(',') : []) === false) {
+      webUploader.reset();
+    }
   });
   webUploader.on('uploadSuccess', function (file, response) {
-    let fileName = response._raw.split('_')[1];
-    if (args.text && $input.length) {
-      $input.val($input.val() + '[img=' + fileName + ']');
-    } else {
-      if (args.pick.multiple || args.pick.multiple === undefined) {
-        $input.val($.trim($input.val()) + ($.trim($input.val()) === '' ? '' : ',') + fileName);
-        $galleryInsert.find('ul').append('<li><img src="' + args.uploadConfig.uploadDir + fileName + '" _src="' + fileName + '" alt="' + fileName + '"><a href="javascript:" class="delete">删除</a></li>');
+    let json = JSON.parse(response);
+    if (json.state === 1) {
+      let fileName = json.content;
+      if (args.text && $input.length) {
+        $input.val($input.val() + '[img=' + fileName + ']');
       } else {
-        $input.val(fileName);
-        $galleryInsert.find('ul').html('<li><img src="' + args.uploadConfig.uploadDir + fileName + '" _src="' + fileName + '" alt="' + fileName + '"><a href="javascript:" class="delete">删除</a></li>');
+        if (args.pick.multiple || args.pick.multiple === undefined) {
+          $input.val($.trim($input.val()) + ($.trim($input.val()) === '' ? '' : ',') + fileName);
+          $galleryInsert.find('ul').append('<li><img src="' + args.uploadConfig.uploadDir + fileName + '" _src="' + fileName + '" alt="' + fileName + '"><a href="javascript:" class="delete">删除</a></li>');
+        } else {
+          $input.val(fileName);
+          $galleryInsert.find('ul').html('<li><img src="' + args.uploadConfig.uploadDir + fileName + '" _src="' + fileName + '" alt="' + fileName + '"><a href="javascript:" class="delete">删除</a></li>');
+        }
       }
+      args.insertCallback($input.length ? $input.val().split(',') : fileName);
+    } else {
+      showTip(json.content, 0);
     }
-    args.insertCallback($input.length ? $input.val().split(',') : fileName);
   });
   webUploader.on('error', uploadValidate);
   $galleryInsert.find('.buttons').on({
@@ -70,7 +77,7 @@ Gallery.prototype.dialog = function (args = {}) {
   let that = this;
   $.ajax({
     type: 'POST',
-    url: args.dirList
+    url: args.pictureDir
   }).then(function (data) {
     if (data === '') {
       alert('图片库中暂无图片，请通过本地上传方式插入图片！');
@@ -186,7 +193,7 @@ Gallery.prototype.paging = function (page, args = {}) {
     if (data) {
       let pictures = $gallery.find('input[name=pictures]').val().split(',');
       $.each(JSON.parse(data), function (index, value) {
-        html += '<li' + ($.inArray(args.name + '/' + value.name, pictures) !== -1 ? ' class="active"' : '') + '' + args.uploadDir + args.name + '><dl><dd><img src="/static" _src="' + value.name + '' + args.name + '/' + value.name + '" alt="' + value.name + '"></dd><dt>' + value.name + '</dt></dl></li>';
+        html += '<li' + ($.inArray(args.name + '/' + value.name, pictures) !== -1 ? ' class="active"' : '') + '><dl><dd><img src="' + args.uploadDir + args.name + '/' + value.name + '" _src="' + args.name + '/' + value.name + '" alt="' + value.name + '"></dd><dt>' + value.name + '</dt></dl></li>';
       });
       $gallery.find('.pagination').show();
     } else {
