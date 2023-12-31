@@ -93,6 +93,12 @@ $(function () {
       text: true,
       input: '',
       uploadConfig: uploadConfig,
+      beforeCallback: function () {
+        if (CKEDITOR.instances['TextArea1'].mode !== 'wysiwyg') {
+          alert('请在设计模式下插入图片');
+          return false;
+        }
+      },
       insertCallback: function (value) {
         CKEDITOR.instances['TextArea1'].insertHtml('<img alt="图片" src="' + CONFIG['UPLOAD_DIR'] + value + '" />');
       }
@@ -101,6 +107,12 @@ $(function () {
       galleryConfig.multiple = true;
       galleryConfig.text = true;
       galleryConfig.id = pickerId3;
+      galleryConfig.beforeCallback = function () {
+        if (CKEDITOR.instances['TextArea1'].mode !== 'wysiwyg') {
+          alert('请在设计模式下插入图片');
+          return false;
+        }
+      };
       galleryConfig.insertCallback = function (value) {
         if (value) {
           $.each(value, function (i, v) {
