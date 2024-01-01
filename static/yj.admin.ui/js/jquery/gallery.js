@@ -1,3 +1,8 @@
+/*
+@Name：《昱杰后台UI框架》
+@Author：风形火影
+@Site：https://www.yjrj.top
+*/
 function Gallery (args = {}) {
   args.beforeCallback = args.beforeCallback ? args.beforeCallback : function () {};
   args.insertCallback = args.insertCallback ? args.insertCallback : function () {};

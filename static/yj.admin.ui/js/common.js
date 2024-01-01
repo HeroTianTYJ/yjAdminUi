@@ -1,3 +1,9 @@
+/*
+@Name：《昱杰后台UI框架》
+@Author：风形火影
+@Site：https://www.yjrj.top
+*/
+
 // 单选和多选
 function iCheck () {
   if ($().iCheck !== undefined) {
