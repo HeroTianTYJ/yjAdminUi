@@ -16,8 +16,8 @@ function Gallery (args = {}) {
   });
   webUploader.on('uploadSuccess', function (file, response) {
     let json = JSON.parse(response._raw);
-    if (json.state === 1) {
-      let fileName = json.content;
+    if (json['state'] === 1) {
+      let fileName = json['content'];
       if (args.text && $input.length) {
         $input.val($input.val() + '[img=' + fileName + ']');
       } else {
@@ -31,7 +31,7 @@ function Gallery (args = {}) {
       }
       args.insertCallback($input.length ? $input.val().split(',') : fileName);
     } else {
-      showTip(json.content, 0);
+      showTip(json['content'], 0);
     }
   });
   webUploader.on('error', uploadValidate);
@@ -47,10 +47,11 @@ function Gallery (args = {}) {
 
   // 删除
   $galleryInsert.find('ul').on('click', '.delete', function () {
+    let $this = $(this);
     let pictures = $input.val().split(',');
-    pictures.splice($.inArray($(this).parent().find('img').attr('_src'), pictures), 1);
+    pictures.splice($.inArray($this.parent().find('img').attr('_src'), pictures), 1);
     $input.val(pictures.join(','));
-    $(this).parent().remove();
+    $this.parent().remove();
     args.deleteCallback(pictures);
   });
 
@@ -88,12 +89,12 @@ Gallery.prototype.dialog = function (args = {}) {
     let json = JSON.parse(data);
     if (json) {
       html += '<div class="dir">图片目录：<select lay-filter="picture_dir" lay-search>';
-      $.each(json.all, function (index, value) {
-        html += '<option value="' + value.name + '" total="' + value.total + '">' + value.name + '</option>';
+      $.each(json, function (index, value) {
+        html += '<option value="' + value['name'] + '" total="' + value['total'] + '">' + value['name'] + '</option>';
       });
       html += '</select>' + (args.multiple ? '（图片将按照您选择的顺序依次添加到对应的表单中，切换图片目录或翻页不影响已选择的图片）' : '') + '</div>';
-      args.name = json.first.name;
-      args.total = json.first.total;
+      args.name = json[0]['name'];
+      args.total = json[0]['total'];
     }
     html += '<ul class="items"></ul><p style="clear:both;"></p><div class="pagination"></div></form>';
     layer.confirm(
