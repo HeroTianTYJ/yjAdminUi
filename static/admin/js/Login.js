@@ -9,9 +9,9 @@ $(function () {
     ajaxPost: true,
     callback: function (data) {
       let json = JSON.parse(data);
-      if (json.state === 0) {
-        tip(json.content);
-      } else if (json.state === 1) {
+      if (json['state'] === 0) {
+        tip(json['content']);
+      } else if (json['state'] === 1) {
         window.location.href = '../index/';
       }
     }

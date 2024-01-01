@@ -15,8 +15,9 @@ $(function () {
   // 左侧导航中的子导航的悬浮
   $navigator.find('li').on({
     mouseover: function () {
-      if ($(this).find('.child').length) $navigator.find('.child').hide();
-      $(this).find('.child').show();
+      let $this = $(this);
+      if ($this.find('.child').length) $navigator.find('.child').hide();
+      $this.find('.child').show();
     },
     mouseout: function () {
       $navigator.find('li .child').hide();
@@ -51,8 +52,9 @@ $(function () {
   // 多选
   $list.on('ifChecked', 'input.all', function () {
     $list.find('input[name=id]').each(function () {
-      $(this).iCheck('check');
-      $(this).parent().parent().parent().parent().parent('tr').addClass('checked');
+      let $this = $(this);
+      $this.iCheck('check');
+      $this.parent().parent().parent().parent().parent('tr').addClass('checked');
     });
     checked();
   }).on('ifUnchecked', 'input.all', function () {
@@ -110,8 +112,8 @@ $(function () {
       }
     }).then(function (data) {
       let json = JSON.parse(data);
-      showTip(json.content, json.state);
-      if (json.state === 1) {
+      showTip(json['content'], json['state']);
+      if (json['state'] === 1) {
         let html = '';
         $.each(obj, function (index, value) {
           html += '<tr>' + value + '</tr>';
@@ -151,8 +153,8 @@ function add (title, width = 800, succeed = function () {}) {
         data: $('form.add').serialize()
       }).then(function (data) {
         let json = JSON.parse(data);
-        showTip(json.content, json.state);
-        if (json.state === 1) {
+        showTip(json['content'], json['state']);
+        if (json['state'] === 1) {
           layer.close(index);
           setTimeout(function () {
             window.location.reload(true);
@@ -182,15 +184,15 @@ function update (title, width = 800, succeed = function () {}) {
         data: $('form.update').serialize() + '&id=' + id
       }).then(function (data) {
         let json = JSON.parse(data);
-        if (json.state === 0) {
-          showTip(json.content, 0);
-        } else if (json.state === 1) {
-          showTip(json.content.msg);
+        if (json['state'] === 0) {
+          showTip(json['content'], 0);
+        } else if (json['state'] === 1) {
+          showTip(json['content'].msg);
           layer.close(index);
-          $list.find('.item' + id).html(listItem(json.content.data).replace(/<tr class="[\w ]+">/, '').replace('</tr>', '').replace(/<li class="[\w ]+">/, '').replace('</li>', ''));
+          $list.find('.item' + id).html(listItem(json['content'].data).replace(/<tr class="[\w ]+">/, '').replace('</tr>', '').replace(/<li class="[\w ]+">/, '').replace('</li>', ''));
           boxShadow();
           iCheck();
-          if (json.content.reload) {
+          if (json['content'].reload) {
             setTimeout(function () {
               window.location.reload();
             }, 3000);
@@ -260,7 +262,7 @@ function remove (moduleName, recycle = false) {
       },
       '<h3><span>？</span>确认要删除此' + moduleName + '吗？</h3><p>删除此' + moduleName + '之后，' + (recycle ? '可在' + moduleName + '回收站进行恢复' : '无法进行恢复，可以重新添加') + '。</p>',
       function (json, index) {
-        if (json.state === 1) {
+        if (json['state'] === 1) {
           $(that).parent().parent().remove();
           layer.close(index);
           setTimeout(function () {
@@ -285,7 +287,7 @@ function multiRemove (moduleName, recycle = false) {
       },
       '<h3><span>？</span>确认要删除这' + $checked.length + '个' + moduleName + '吗？</h3><p>删除这' + $checked.length + '个' + moduleName + '之后，' + (recycle ? '可在' + moduleName + '回收站进行恢复' : '无法进行恢复，可以重新添加') + '。</p>',
       function (json, index) {
-        if (json.state === 1) {
+        if (json['state'] === 1) {
           $checked.remove();
           layer.close(index);
           setTimeout(function () {
@@ -294,5 +296,20 @@ function multiRemove (moduleName, recycle = false) {
         }
       }
     );
+  });
+}
+
+// tab切换
+function tabSwitch (succeed = function () {}) {
+  let $tabLi = $('.tab li');
+  let $column = $('.form .column');
+  $tabLi.on('click', function () {
+    let $this = $(this);
+    $tabLi.removeClass('active');
+    $this.addClass('active');
+    $column.addClass('none');
+    $column.eq($this.index()).removeClass('none');
+    screenAuto();
+    succeed($this.index());
   });
 }

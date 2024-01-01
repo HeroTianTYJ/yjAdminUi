@@ -1,15 +1,7 @@
 $(function () {
   // tab切换
-  let $tabLi = $('.tab li');
-  let $column = $('.form .column');
-  $tabLi.on('click', function () {
-    $tabLi.removeClass('active');
-    $(this).addClass('active');
-    $column.addClass('none');
-    $column.eq($(this).index()).removeClass('none');
-    screenAuto();
-
-    if ($(this).index() === 2 && $('.CodeMirror').length === 0) {
+  tabSwitch(function (index) {
+    if (index === 2 && $('.CodeMirror').length === 0) {
       code();
     }
   });

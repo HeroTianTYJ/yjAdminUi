@@ -22,7 +22,7 @@ $(function () {
       {id: 1}, // 根据需求向后端传递的参数
       '<h3><span>？</span>确认要删除此订单吗？</h3><p>删除此订单之后，无法进行恢复，可以重新添加。</p>',
       function (json, index) {
-        if (json.state === 1) {
+        if (json['state'] === 1) {
           layer.close(index);
         }
       }
@@ -42,8 +42,8 @@ $(function () {
           data: {id: 1} // 根据需求向后端传递的参数
         }).then(function (data) {
           let json = JSON.parse(data);
-          showTip(json.content, json.state);
-          if (json.state === 1) {
+          showTip(json['content'], json['state']);
+          if (json['state'] === 1) {
             layer.close(index);
           }
         });
@@ -63,8 +63,8 @@ $(function () {
           data: $('form.form').serialize()
         }).then(function (data) {
           let json = JSON.parse(data);
-          showTip(json.content, json.state);
-          if (json.state === 1) {
+          showTip(json['content'], json['state']);
+          if (json['state'] === 1) {
             layer.close(index);
           }
         });

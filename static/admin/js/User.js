@@ -25,7 +25,7 @@ $(function () {
       {id: $(that).parent().parent().find('input[name=id]').val()},
       '<h3><span>？</span>确定要为该用户解绑微信吗？</h3><p>解绑后，该用户需要重新绑定微信。</p>',
       function (json, layerIndex) {
-        if (json.state === 1) {
+        if (json['state'] === 1) {
           layer.close(layerIndex);
           $(that).parent().html('<span class="green">否</span>');
         }
@@ -41,7 +41,7 @@ $(function () {
       {id: $(that).parent().parent().find('input[name=id]').val()},
       '<h3><span>？</span>确定要为该用户解绑QQ吗？</h3><p>解绑后，该用户需要重新绑定QQ。</p>',
       function (json, layerIndex) {
-        if (json.state === 1) {
+        if (json['state'] === 1) {
           layer.close(layerIndex);
           $(that).parent().html('<span class="green">否</span>');
         }

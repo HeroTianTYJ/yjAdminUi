@@ -22,8 +22,8 @@ $(function () {
       }
     }).then(function (data) {
       let json = JSON.parse(data);
-      showTip(json.content, json.state);
-      if (json.state === 1) {
+      showTip(json['content'], json['state']);
+      if (json['state'] === 1) {
         if ($(that).attr('attr-is-view') === '0') {
           $(that).parent().html('<span class="green">否</span> | <a href="javascript:" class="is_view" attr-is-view="1">上架</a>');
         } else if ($(that).attr('attr-is-view') === '1') {
@@ -44,8 +44,8 @@ $(function () {
       }
     }).then(function (data) {
       let json = JSON.parse(data);
-      showTip(json.content, json.state);
-      if (json.state === 1) {
+      showTip(json['content'], json['state']);
+      if (json['state'] === 1) {
         let $parent = $(that).parent();
         $list.find('td.is_default').html('<a href="javascript:" class="is_default">设为默认</a>');
         $parent.html('<span class="red">是</span>');

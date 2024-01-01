@@ -117,7 +117,7 @@ function download (url, data = {}) {
     data: data
   }).then(function (data) {
     let json = JSON.parse(data);
-    let $a = $('<a href="' + URL.createObjectURL(new Blob(['\ufeff' + json.file], {type: 'text/' + json.extension})) + '" download="' + json.filename + '"></a>').appendTo('body');
+    let $a = $('<a href="' + URL.createObjectURL(new Blob(['\ufeff' + json['file']], {type: 'text/' + json['extension']})) + '" download="' + json['filename'] + '"></a>').appendTo('body');
     $a[0].click();
     $a.remove();
   });
@@ -131,8 +131,8 @@ function commonAjax (url, data = {}, reload = true) {
     data: data
   }).then(function (data) {
     let json = JSON.parse(data);
-    showTip(json.content, json.state);
-    if (json.state === 1 && reload) {
+    showTip(json['content'], json['state']);
+    if (json['state'] === 1 && reload) {
       setTimeout(function () {
         window.location.reload(true);
       }, 3000);
@@ -157,7 +157,7 @@ function confirmLayer (url, data = {}, message = '', callback = function () {}) 
         data: data
       }).then(function (data) {
         let json = JSON.parse(data);
-        showTip(json.content, json.state);
+        showTip(json['content'], json['state']);
         callback(json, index);
       });
     }
@@ -173,7 +173,7 @@ function ajaxMessageLayer (url, title = '', data = {}, callback = function () {}
   }).then(function (data) {
     if (isJSON(data)) {
       let json = JSON.parse(data);
-      showTip(json.content, json.state);
+      showTip(json['content'], json['state']);
     } else {
       layer.confirm(
         data,

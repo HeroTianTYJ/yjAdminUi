@@ -16,7 +16,7 @@ $(function () {
         {id: CONFIG['ID']},
         '<h3><span>？</span>确定要清理冗余图片吗？</h3><p>清理冗余图片之后，无法进行恢复。</p>',
         function (json, layerIndex) {
-          if (json.state === 1) {
+          if (json['state'] === 1) {
             layer.close(layerIndex);
             setTimeout(function () {
               window.location.reload(true);

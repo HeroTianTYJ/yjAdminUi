@@ -60,17 +60,18 @@
           });
           // 输入框
           element.on('keyup', 'input', function (e) {
-            $(this).val($(this).val().replace(/\D/g, ''));
+            let $this = $(this);
+            $this.val($this.val().replace(/\D/g, ''));
             if (e.key === 'Enter') {
-              args.active = parseInt($(this).val());
+              args.active = parseInt($this.val());
               if (args.active < 1) {
                 showTip('页码不得小于1！', 0);
-                $(this).trigger('focus');
+                $this.trigger('focus');
                 return false;
               }
               if (args.active > args.pageCount) {
                 showTip('页码不得大于' + args.pageCount + '！', 0);
-                $(this).trigger('focus');
+                $this.trigger('focus');
                 return false;
               }
               that.fillHtml(element, args);
