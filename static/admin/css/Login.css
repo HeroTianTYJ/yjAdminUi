@@ -83,14 +83,20 @@ form.login footer.copyright{
 	color: #999;
 }
 
-@media (max-width:480px){
+@media (max-width:720px){
 	body {
-		background: none;
+		background: #F2F3FF url("../images/login_bg2.png") no-repeat fixed top center;
+		background-size: 100% 100%;
 	}
 	form.login {
 		width: 95%;
 		margin: 100px auto 0 auto;
+		padding: 40px;
+		box-sizing: border-box;
 		position: inherit;
+		background: #FFF;
+		box-shadow: 0 0 13px 12px rgba(0, 0, 0, 0.04);
+		border-radius: 8px;
 	}
 	form.login dl {
 		width: 100%;
