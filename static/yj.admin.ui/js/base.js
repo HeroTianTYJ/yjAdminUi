@@ -192,12 +192,12 @@ function update (title, width = 800, succeed = function () {}) {
         if (json['state'] === 0) {
           showTip(json['content'], 0);
         } else if (json['state'] === 1) {
-          showTip(json['content'].msg);
+          showTip(json['content']['msg']);
           layer.close(index);
-          $list.find('.item' + id).html(listItem(json['content'].data).replace(/<tr class="[\w ]+">/, '').replace('</tr>', '').replace(/<li class="[\w ]+">/, '').replace('</li>', ''));
+          $list.find('.item' + id).html(listItem(json['content']['data']).replace(/<tr class="[\w ]+">/, '').replace('</tr>', '').replace(/<li class="[\w ]+">/, '').replace('</li>', ''));
           boxShadow();
           iCheck();
-          if (json['content'].reload) {
+          if (json['content']['reload']) {
             setTimeout(function () {
               window.location.reload();
             }, 3000);
