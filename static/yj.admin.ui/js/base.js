@@ -315,6 +315,6 @@ function tabSwitch (succeed = function () {}) {
     $column.addClass('none');
     $column.eq($this.index()).removeClass('none');
     screenAuto();
-    succeed($this.index());
+    succeed($this.index(), $tabLi.length);
   });
 }
