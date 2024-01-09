@@ -5,6 +5,8 @@
 */
 $(function () {
   // 搜索
+  // 关键词
+  searchKeyword();
   layui.use(['form', 'date'], function () {
     // 下拉框
     layui.form.on('select(select_id)', function (data) {

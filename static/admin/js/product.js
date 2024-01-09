@@ -10,6 +10,9 @@ $(function () {
   // 列表
   list(moduleName);
 
+  // 列表排序
+  sort();
+
   // 添加
   add('添加' + moduleName);
 
@@ -65,6 +68,8 @@ $(function () {
   multiRemove(moduleName);
 
   // 搜索
+  // 关键词
+  searchKeyword();
   layui.use(['form'], function () {
     // 分类
     layui.form.on('select(product_sort_id)', function (data) {

@@ -55,6 +55,8 @@ $(function () {
   });
 
   // 搜索
+  // 关键词
+  searchKeyword();
   layui.use(['form', 'date'], function () {
     // 用户等级
     layui.form.on('select(user_level_id)', function (data) {
