@@ -209,6 +209,22 @@ function getKey (length) {
   return key;
 }
 
+// 生成随机手机号
+function getTel (count = 10) {
+  let prefix = [130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 144, 147, 150, 151, 152, 153, 155, 156, 157, 158, 159, 176, 177, 178, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189];
+  let result = [];
+  for (let i = 0; i < count; i++) {
+    let tel = prefix[getRandom(0, prefix.length - 1)] + '' + getRandom(10000000, 99999999);
+    if (result.indexOf(tel) < 0) result.push(tel);
+  }
+  return result;
+}
+
+// 生成随机数
+function getRandom (min, max) {
+  return Math.floor(Math.random() * (min - max + 1)) + max;
+}
+
 // 获取耗时
 function getTakeTime (time) {
   let day = Math.floor(time / 86400);
