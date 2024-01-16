@@ -38,20 +38,14 @@ function leftNavigator () {
 // 屏幕自适应
 function screenAuto () {
   let $main = $('.main');
-  let $tool = $main.find('.tool');
-  let $list = $main.find('.list');
-  let $pagination = $main.find('.pagination');
   let $window = $(window);
-  let $left = $('.left');
-  let $navigator = $left.find('ul.navigator');
-  let $top = $('.top');
-  let $right = $('.right');
-  $right.css({minHeight: $window.height() - 54});
-  $main.css({minHeight: $window.height() - 69});
+  let $navigator = $('.left ul.navigator');
   $navigator.height($main.height() + 15);
   $navigator.find('.child').height($main.height() - 1);
-  $list.height($window.height() - $top.height() - $tool.height() - $pagination.height() - 32);
+  $main.css({minHeight: $window.height() - 69});
+  $main.find('.list').height($window.height() - $('.top').height() - $main.find('.tool').height() - $main.find('.pagination').height() - 32);
   boxShadow();
+  $('.right').css({minHeight: $window.height() - 54});
 }
 
 // 列表阴影
