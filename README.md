@@ -16,7 +16,7 @@
 
 ## 二、在线演示
 
-https://www.yjrj.top/demo/yjAdminUi/
+https://www.yjrj.cn/demo/yjAdminUi/
 
 ## 三、框架源码获取
 
